@@ -1,4 +1,11 @@
 class TeamsController < ApplicationController
+
+    get '/teams' do
+        @teams = Team.all
+        @team = Team.find_by_id(session[:team_id])
+        erb :'/teams/index'
+    end
+
     get '/teams/new' do
         erb :'/teams/new'
     end
@@ -11,14 +18,11 @@ class TeamsController < ApplicationController
 
     get '/teams/:id' do
         find_team
+        session[:team_id] = @tame.id if @team
         redirect_if_team_not_found
         erb :'/teams/show'
       end
     
-    get '/teams' do
-        @teams = Team.all
-        erb :'/teams/index'
-    end
 
     post '/teams' do
         team = Team.new(params)

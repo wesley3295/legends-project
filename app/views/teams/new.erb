@@ -1,10 +1,27 @@
 <h1>New team erb<h1>
 
-
 <form action="/teams" method="post">
     <div class="input-field">
-          <input id="team_name" name="team_name" type="text" class="validate">
+          <input id="team_name" name="user[team_name]" type="text" class="validate">
           <label for="team_name">Team Name</label>
     </div>
-          <input type="submit" value="Create Team" class="btn">
-</form>
+
+<style>
+
+</style>
+<ul style="position:relative; column-count: 10; column-rule: dotted 1px #333; list-style-type: none;">
+     <%Champion.hash_champs.each do |champ|%>
+   <div class="form-row">
+   <label  style="color:black" class="container"><%= champ["Name"] %>
+    <input style="position:relative;" type="checkbox"  name="user[champs][]">
+    <span class="checkmark"></span>
+    </label>
+    </div>
+    <%end%>
+  </ul>
+   
+    <input type="submit" value="Create Team" class="btn">
+  </form>
+         
+
+

@@ -12,7 +12,8 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'dotenv'
-
+gem "json"
+gem 'rest-client'
 group :test do
   gem 'rspec'
   gem 'capybara'

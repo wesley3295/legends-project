@@ -2,7 +2,11 @@ class TeamsController < ApplicationController
     get '/teams/new' do
         erb :'/teams/new'
     end
-    
+
+    get '/teams/:id' do
+        @team = Team.find_by_id(params[:id])
+        erb :'/teams/show'
+      end
     
     get '/teams' do
         @teams = Team.all
@@ -11,7 +15,6 @@ class TeamsController < ApplicationController
 
     post '/teams' do
         team = Team.new(params)
-        team.save
         if team.save
             redirect '/teams'
         else

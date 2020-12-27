@@ -1,2 +1,9 @@
 <h3><%= @team.team_name %></h3>
 <p>Champion statistics coming soon!!!</p>
+
+
+<form action="/teams/<%= @team.id %>" method="post">
+    <a href="/teams/<%= @team.id %>/edit" class="btn">Edit Team</a>
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Remove Team" class="btn">
+</form>

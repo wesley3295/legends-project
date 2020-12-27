@@ -1,0 +1,11 @@
+<h1>Edit: <%= @team.team_name %><h1>
+
+
+<form action="/teams/<%= @team.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <div class="input-field">
+          <input id="team_name" name="team_name[team_name]" value="<%= @team.team_name %>" type="text" class="validate">
+          <label for="team_name">Team Name</label>
+    </div>
+          <input type="submit" value="Update Team" class="btn">
+</form>

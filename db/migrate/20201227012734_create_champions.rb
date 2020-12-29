@@ -25,7 +25,6 @@ class CreateChampions < ActiveRecord::Migration
       t.integer :ChampionId
       t.string :Name
       t.string :Title
-      t.integer :team_id
     end
   end
 end

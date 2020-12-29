@@ -3,6 +3,7 @@ class TeamsController < ApplicationController
     get '/teams' do
         @teams = Team.all
         @team = Team.find_by_id(session[:team_id])
+        
         erb :'/teams/index'
     end
 
@@ -15,22 +16,25 @@ class TeamsController < ApplicationController
         redirect_if_team_not_found
         erb :'teams/edit'
     end
-
+    
     get '/teams/:id' do
         find_team
-        session[:team_id] = @tame.id if @team
+        # binding.pry
+        session[:team_id] = @team.id if @team
         redirect_if_team_not_found
         erb :'/teams/show'
       end
     
 
     post '/teams' do
-        team = Team.new(params)
-        if team.save
-            redirect '/teams'
-        else
-            redirect '/teams/new'
-        end
+        @team = Team.create(team_name: params[:user][:team_name], champion_ids: params[:user][:champion_ids], user_id: current_user.id)
+        
+        # if !params[:team][:champion_id].empty?
+        # @team.champion_id << Team.create(champion_ids params[:team][:champion_id])
+            redirect "/teams/#{@team.id}"
+        # else
+        #     redirect '/teams/new'
+        # end
     end
 
     patch '/teams/:id' do

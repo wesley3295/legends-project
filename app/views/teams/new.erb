@@ -10,18 +10,18 @@
 
 </style>
 <ul style="position:relative; column-count: 10; column-rule: dotted 1px #333; list-style-type: none;">
-     <%Champion.hash_champs.each do |champ|%>
+     <%Champion.all.each do |champ|%>
    <div class="form-row">
-   <label  style="color:black" class="container"><%= champ["Name"] %>
-    <input style="position:relative;" type="checkbox"  name="user[champs][]">
+   <label  style="color:black" class="container"><%=champ.Name%>
+    <input style="position:relative;" value="<%=champ.id%>" type="checkbox"  name="user[champion_ids][]" >
     <span class="checkmark"></span>
     </label>
     </div>
     <%end%>
   </ul>
    
-    <input type="submit" value="Create Team" class="btn">
+    
+         <input type="submit" value="Create Team" class="btn">
   </form>
-         
 
 

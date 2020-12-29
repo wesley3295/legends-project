@@ -1,4 +1,9 @@
 <h3><%= @team.team_name %></h3>
+<%@team.champions.collect do |champ| %>
+<ul>
+<li><a href="/champions/<%=champ.id%>"><%=champ.Name%></li></a>
+<%end%>
+</ul>
 <p>Champion statistics coming soon!!!</p>
 
 

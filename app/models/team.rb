@@ -1,5 +1,7 @@
 class Team < ActiveRecord::Base
+    
     validates_presence_of :team_name
-    has_many :champions
     belongs_to :user
+    has_many :team_champions
+    has_many :champions, through: :team_champions
 end

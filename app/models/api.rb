@@ -13,9 +13,7 @@
 #     def self.data_of_champions
 #         response = RestClient.get(base_url + '/lol/stats/json/Champions?key=aacc8ac9a58640728208a410e55e38d0')
 #         data = JSON.parse(response.body)
-#         data.collect do |d|
-#            key_data = d.transform_keys(&:to_sym)
-#            Champion.create(key_data)
-#         end
+#         #    key_data = d.transform_keys(&:to_sym)
+#            Champion.create(data)
 #     end
 # end
